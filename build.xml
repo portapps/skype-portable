@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="skype" basedir=".">
 
-<dirname property="app.basedir" file="${ant.file.skype}"/>
-<property name="build.properties" value="${app.basedir}/build.properties"/>
-<property file="${build.properties}"/>
+  <dirname property="app.basedir" file="${ant.file.skype}"/>
+  <property name="build.properties" value="${app.basedir}/build.properties"/>
+  <property file="${build.properties}"/>
 
-<!-- Load Portapps core build -->
-<property name="core.basedir" location="${app.basedir}\${core.dir}"/>
-<fail unless="core.basedir" message="Core directory '${core.basedir}' not found in ${core.basedir}"/>
-<echo message="Core found in ${core.basedir}" level="debug"/>
+  <!-- Load Portapps core build -->
+  <property name="core.basedir" location="${app.basedir}\${core.dir}"/>
+  <fail unless="core.basedir" message="Core directory '${core.basedir}' not found in ${core.basedir}"/>
+  <echo message="Core found in ${core.basedir}" level="debug"/>
 
-<!-- Import build-app.xml  -->
-<import file="${core.basedir}\.build\build-app.xml"/>
+  <!-- Import build-app.xml  -->
+  <import file="${core.basedir}\.build\build-app.xml"/>
 
-<!-- Targets -->
-<target name="release" depends="release.app" description="Release"/>
+  <!-- Targets -->
+  <target name="release" depends="release.app" description="Release"/>
+
+  <target name="prepare" depends="load.lib.asar">
+    <echo message="Extracting app.asar..."/>
+    <exec executable="asar.cmd" failonerror="true" dir="${extract.path}\${innosetup.app}\resources">
+      <arg value="extract"/>
+      <arg value="app.asar"/>
+      <arg value="app"/>
+    </exec>
+
+    <echo message="Replacing in app.asar..."/>
+    <assertfile file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file}"/>
+    <replace file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file}">
+      <replacefilter token="${electron.appasar.search}" value="${electron.appasar.replace}"/>
+    </replace>
+  </target>
 
 </project>

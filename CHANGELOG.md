@@ -1,5 +1,9 @@
 # Changelog
 
+## 8.13.0.3-4 (2018/01/14)
+
+* Disable updates
+
 ## 8.13.0.3-3 (2018/01/12)
 
 * New release of Skype : 8.13.0.3

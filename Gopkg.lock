@@ -11,13 +11,13 @@
   branch = "master"
   name = "github.com/portapps/portapps"
   packages = ["."]
-  revision = "43d65ce3116a9105f13ab3c5b2eb0a05bef556c2"
+  revision = "c5c7f2b00b78bb35a357497296b85661d715ded4"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["windows","windows/registry","windows/svc/eventlog"]
-  revision = "0ac51a24ef1c37380f98ba8b98f56e3bffd59850"
+  revision = "810d7000345868fc619eb81f46307107118f4ae1"
 
 [solve-meta]
   analyzer-name = "dep"
