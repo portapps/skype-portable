@@ -6,6 +6,7 @@
   <a href="https://ci.appveyor.com/project/crazy-max/skype-portable"><img src="https://img.shields.io/appveyor/ci/crazy-max/skype-portable.svg?style=flat-square" alt="AppVeyor"></a>
   <a href="https://goreportcard.com/report/github.com/portapps/skype-portable"><img src="https://goreportcard.com/badge/github.com/portapps/skype-portable?style=flat-square" alt="Go Report"></a>
   <a href="https://www.codacy.com/app/crazy-max/skype-portable"><img src="https://img.shields.io/codacy/grade/07946201a8a74eab9c6021a26f32fb4e.svg?style=flat-square" alt="Code Quality"></a>
+  <a href="https://beerpay.io/portapps/portapps"><img src="https://img.shields.io/beerpay/portapps/portapps.svg?style=flat-square" alt="Beerpay"></a>
   <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WQD7AQGPDEPSG"><img src="https://img.shields.io/badge/donate-paypal-7057ff.svg?style=flat-square" alt="Donate Paypal"></a>
 </p>
 
@@ -35,11 +36,12 @@ Run `skype-portable.exe` and then you can [remove](https://support.microsoft.com
 
 ## How can i help ?
 
-We welcome all kinds of contributions :raised_hands:!<br />
+All kinds of contributions are welcomed :raised_hands:!<br />
 The most basic way to show your support is to star :star2: the project, or to raise issues :speech_balloon:<br />
-Any funds donated will be used to help further development on this project! :gift_heart:
+But we're not gonna lie to each other, I'd rather you buy me a beer or two :beers:!
 
-[![Donate Paypal](https://raw.githubusercontent.com/portapps/portapps/master/res/paypal.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WQD7AQGPDEPSG)
+[![Beerpay](https://beerpay.io/portapps/portapps/badge.svg?style=beer-square)](https://beerpay.io/portapps/portapps)
+or [![Paypal](https://raw.githubusercontent.com/portapps/portapps/master/res/paypal.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WQD7AQGPDEPSG)
 
 ## License
 
