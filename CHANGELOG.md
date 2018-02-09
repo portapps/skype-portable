@@ -1,5 +1,9 @@
 # Changelog
 
+## 8.15.0.4-7 (2018/02/09)
+
+* Ability to pass custom args to the portable process
+
 ## 8.15.0.4-6 (2018/02/07)
 
 * Upgrade to Skype : 8.15.0.4

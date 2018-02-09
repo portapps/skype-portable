@@ -3,6 +3,8 @@
 package main
 
 import (
+	"os"
+
 	. "github.com/portapps/portapps"
 )
 
@@ -16,8 +18,8 @@ func main() {
 	Papp.AppPath = AppPathJoin("app")
 	Papp.DataPath = AppPathJoin("data")
 	Papp.Process = PathJoin(Papp.AppPath, "Skype.exe")
-	Papp.Args = []string{ "--datapath=" + Papp.DataPath }
+	Papp.Args = []string{"--datapath=" + Papp.DataPath}
 	Papp.WorkingDir = Papp.AppPath
 
-	Launch()
+	Launch(os.Args[1:])
 }
