@@ -19,12 +19,12 @@ Tested on Windows 7, Windows 8.1 and Windows 10.
 
 There are different kinds of artifacts :
 
-* `skype-portable-{ia32,x64}-x.x.x-x-setup.exe` : Full portable release of Skype as a setup. **Recommended way**!
-* `skype-portable-{ia32,x64}-x.x.x-x.7z` : Full portable release of Skype as a 7z archive.
-* `skype-portable-{ia32,x64}.exe` : Only the portable binary (must be renamed `skype-portable.exe`)
-* `Skype-{ia32,x64}-x.x.x.x-setup.exe` : The original setup from the [official website](https://www.skype.com/fr/get-skype/).
+* `skype-portable-win{32,64}-x.x.x-x-setup.exe` : Full portable release of Skype as a setup. **Recommended way**!
+* `skype-portable-win{32,64}-x.x.x-x.7z` : Full portable release of Skype as a 7z archive.
+* `skype-portable-win{32,64}.exe` : Only the portable binary (must be renamed `skype-portable.exe`)
+* `Skype-win{32,64}-x.x.x.x-setup.exe` : The original setup from the [official website](https://www.skype.com/fr/get-skype/).
 
-For a **fresh installation**, install `skype-portable-{ia32,x64}-x.x.x-x-setup.exe` where you want then run `skype-portable.exe`.
+For a **fresh installation**, install `skype-portable-win{32,64}-x.x.x-x-setup.exe` where you want then run `skype-portable.exe`.
 
 If **you have already installed Skype from the original setup**, do the same thing as a fresh installation and move :
 
