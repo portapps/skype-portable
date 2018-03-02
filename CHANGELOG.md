@@ -1,5 +1,9 @@
 # Changelog
 
+## 8.16.0.4-9 (2018/03/02)
+
+* Upgrade to Skype 8.16.0.4
+
 ## 8.15.0.4-8 (2018/02/11)
 
 * Move ia32/x64 to win32/win64 for arch def
@@ -12,11 +16,11 @@
 
 ## 8.15.0.4-6 (2018/02/07)
 
-* Upgrade to Skype : 8.15.0.4
+* Upgrade to Skype 8.15.0.4
 
 ## 8.14.0.10-5 (2018/01/27)
 
-* Upgrade to Skype : 8.14.0.10
+* Upgrade to Skype 8.14.0.10
 
 ## 8.13.0.3-4 (2018/01/14)
 
@@ -24,11 +28,11 @@
 
 ## 8.13.0.3-3 (2018/01/12)
 
-* Upgrade to Skype : 8.13.0.3
+* Upgrade to Skype 8.13.0.3
 
 ## 8.12.0.14-2 (2017/12/16)
 
-* Upgrade to Skype : 8.12.0.14
+* Upgrade to Skype 8.12.0.14
 
 ## 8.11.0.4-1 (2017/12/15)
 
