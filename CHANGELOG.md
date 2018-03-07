@@ -1,5 +1,9 @@
 # Changelog
 
+## 8.17.0.2-10 (2018/03/07)
+
+* Upgrade to Skype 8.17.0.2
+
 ## 8.16.0.4-9 (2018/03/02)
 
 * Upgrade to Skype 8.16.0.4
