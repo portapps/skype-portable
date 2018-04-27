@@ -4,6 +4,7 @@ package main
 
 import (
 	"os"
+	"path"
 
 	. "github.com/portapps/portapps"
 )
@@ -22,4 +23,9 @@ func main() {
 	Papp.WorkingDir = Papp.AppPath
 
 	Launch(os.Args[1:])
+
+	oldAppData := path.Join(os.Getenv("APPDATA"), "Skype")
+	if _, err := os.Stat(oldAppData); err == nil {
+		os.RemoveAll(oldAppData)
+	}
 }

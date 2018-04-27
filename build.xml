@@ -29,6 +29,9 @@
     <replace file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file}">
       <replacefilter token="${electron.appasar.search}" value="${electron.appasar.replace}"/>
     </replace>
+    <replace file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file2}">
+      <replacefilter token="${electron.appasar.search2}" value="${electron.appasar.replace2}"/>
+    </replace>
   </target>
 
 </project>

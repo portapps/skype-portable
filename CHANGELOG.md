@@ -1,5 +1,10 @@
 # Changelog
 
+## 8.20.0.9-12 (2018/04/27)
+
+* Upgrade to Skype 8.20.0.9
+* Fix files written in `AppData\Roaming` (Issue #1)
+
 ## 8.19.0.1-11 (2018/04/20)
 
 * Upgrade to Skype 8.19.0.1
