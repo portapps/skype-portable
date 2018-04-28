@@ -1,5 +1,9 @@
 # Changelog
 
+## 8.20.0.9-13 (2018/04/28)
+
+* Remove uneeded `app.asar` file
+
 ## 8.20.0.9-12 (2018/04/27)
 
 * Upgrade to Skype 8.20.0.9
