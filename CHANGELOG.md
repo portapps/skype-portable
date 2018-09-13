@@ -1,5 +1,11 @@
 # Changelog
 
+## 8.30.0.50-23 (2018/09/13)
+
+* Upgrade to Skype 8.30.0.50
+* Upgrade to Go 1.11
+* Use [go mod](https://golang.org/cmd/go/#hdr-Module_maintenance) instead of `dep`
+
 ## 8.29.0.50-22 (2018/09/01)
 
 * Upgrade to Skype 8.29.0.50
