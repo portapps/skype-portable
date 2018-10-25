@@ -1,5 +1,10 @@
 # Changelog
 
+## 8.33.0.41-25 (2018/10/15)
+
+* Upgrade to Skype 8.33.0.41
+* Fix Windows desktop notifications
+
 ## 8.32.0.53-24 (2018/10/15)
 
 * Upgrade to Skype 8.32.0.53
