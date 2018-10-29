@@ -4,7 +4,7 @@
 
 * Upgrade to Skype 8.33.0.50
 
-## 8.33.0.41-25 (2018/10/15)
+## 8.33.0.41-25 (2018/10/25)
 
 * Upgrade to Skype 8.33.0.41
 * Fix Windows desktop notifications
