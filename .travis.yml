@@ -1,0 +1,24 @@
+os: windows
+language: go
+go: 1.11.2
+
+before_install:
+  - choco install jre8 ant
+  - java -version
+  - ant -version
+  - go version
+  - go env
+
+before_script:
+  - git clone https://github.com/portapps/portapps $(dirname $TRAVIS_BUILD_DIR)/portapps
+
+script:
+  - ant release
+
+after_success:
+  - export APP_VERSION=`cat $TRAVIS_BUILD_DIR/bin/tmp/version.dat`
+
+before_deploy:
+  - git config --local user.email "builds@travis-ci.com"
+  - git config --local user.name "Travis CI"
+  - git tag "$APP_VERSION"
