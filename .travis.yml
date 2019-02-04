@@ -1,6 +1,11 @@
 os: windows
 language: shell
 
+env:
+  global:
+    - GOVERSION: 1.11.5
+    - NODEJS_VERSION: 11.9.0
+
 before_install:
   - git clone https://github.com/portapps/portapps ${TRAVIS_BUILD_DIR}/../portapps
   - bash ${TRAVIS_BUILD_DIR}/../portapps/.travis/install-deps.sh
@@ -10,8 +15,8 @@ script:
   - ant release
 
 after_success:
-  - export APP_VERSION=`cat $TRAVIS_BUILD_DIR/bin/tmp/version.dat`
-  - echo $APP_VERSION
+  - export APP_VERSION=$(cat $TRAVIS_BUILD_DIR/bin/tmp/version.dat)
+  - echo ${APP_VERSION}
 
 before_deploy:
   - git config --local user.email "builds@travis-ci.com"
