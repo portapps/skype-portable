@@ -1,31 +1,10 @@
 os: windows
 language: shell
 
-env:
-  global:
-    - GOPATH: /c/gopath
-    - GOROOT: /c/go
-    - GOVERSION: 1.11.5
-    - JAVA_HOME: /c/jdk
-
 before_install:
-  - rm -rf $JAVA_HOME $GOROOT
-  - export PATH=$JAVA_HOME/bin:$GOPATH/bin:$GOPATH/bin/windows_386:$GOROOT/bin:/c/nodejs:$PATH
-  - choco install jdk8 -params 'installdir=c:\\jdk'
-  - choco install ant --ignore-dependencies
-  - choco install nodejs.install -ia "INSTALLDIR=c:\\nodejs" -y
-  - npm config set prefix "c:\\nodejs"
-  - curl -fsS -o go$GOVERSION.windows-amd64.zip https://storage.googleapis.com/golang/go$GOVERSION.windows-amd64.zip
-  - 7z x go$GOVERSION.windows-amd64.zip -y -o/c/
-  - java -version
-  - ant -version
-  - go version
-  - go env
-  - node --version
-  - npm --version
-
-before_script:
   - git clone https://github.com/portapps/portapps ${TRAVIS_BUILD_DIR}/../portapps
+  - bash ${TRAVIS_BUILD_DIR}/../portapps/.travis/install-deps.sh
+  - set
 
 script:
   - ant release
@@ -37,7 +16,8 @@ after_success:
 before_deploy:
   - git config --local user.email "builds@travis-ci.com"
   - git config --local user.name "Travis CI"
-  - git tag $APP_VERSION -a -m "Generated tag from TravisCI for $APP_VERSION"
+  - export TRAVIS_TAG="${APP_VERSION}"
+  - git tag $TRAVIS_TAG
   - ls -al bin/release
 
 deploy:
