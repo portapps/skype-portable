@@ -6,6 +6,8 @@ package main
 
 import (
 	_ "github.com/kevinburke/go-bindata"
+	"github.com/portapps/portapps/pkg/shortcut"
+	"github.com/portapps/portapps/pkg/utl"
 
 	"io/ioutil"
 	"os"
@@ -15,46 +17,62 @@ import (
 	"github.com/portapps/skype-portable/assets"
 )
 
+var (
+	app *App
+)
+
 func init() {
-	Papp.ID = "skype-portable"
-	Papp.Name = "Skype"
-	Init()
+	var err error
+
+	// Init app
+	if app, err = New("skype-portable", "Skype"); err != nil {
+		Log.Fatal().Err(err).Msg("Cannot initialize application. See log file for more info.")
+	}
 }
 
 func main() {
-	Papp.AppPath = AppPathJoin("app")
-	Papp.DataPath = CreateFolder(AppPathJoin("data"))
-	Papp.Process = PathJoin(Papp.AppPath, "Skype.exe")
-	Papp.Args = []string{"--datapath=" + Papp.DataPath}
-	Papp.WorkingDir = Papp.AppPath
+	utl.CreateFolder(app.DataPath)
+	app.Process = utl.PathJoin(app.AppPath, "Skype.exe")
+	app.Args = []string{
+		"--datapath=" + app.DataPath,
+	}
 
 	// Copy default shortcut
 	shortcutPath := path.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "Skype Portable.lnk")
 	defaultShortcut, err := assets.Asset("Skype.lnk")
 	if err != nil {
-		Log.Error("Cannot load asset Skype.lnk:", err)
+		Log.Error().Err(err).Msg("Cannot load asset Skype.lnk")
 	}
 	err = ioutil.WriteFile(shortcutPath, defaultShortcut, 0644)
 	if err != nil {
-		Log.Error("Cannot write default shortcut:", err)
+		Log.Error().Err(err).Msg("Cannot write default shortcut")
 	}
+
+	// Remove old appdata when closed
+	oldAppData := path.Join(os.Getenv("APPDATA"), "Skype")
+	defer func() {
+		if err := os.RemoveAll(oldAppData); err != nil {
+			Log.Error().Err(err).Msg("Cannot old appdata folder")
+		}
+	}()
 
 	// Update default shortcut
-	err = CreateShortcut(WindowsShortcut{
+	err = shortcut.Create(shortcut.Shortcut{
 		ShortcutPath:     shortcutPath,
-		TargetPath:       Papp.Process,
-		Arguments:        WindowsShortcutProperty{Clear: true},
-		Description:      WindowsShortcutProperty{Value: "Skype Portable by Portapps"},
-		IconLocation:     WindowsShortcutProperty{Value: Papp.Process},
-		WorkingDirectory: WindowsShortcutProperty{Value: Papp.AppPath},
+		TargetPath:       app.Process,
+		Arguments:        shortcut.Property{Clear: true},
+		Description:      shortcut.Property{Value: "Skype Portable by Portapps"},
+		IconLocation:     shortcut.Property{Value: app.Process},
+		WorkingDirectory: shortcut.Property{Value: app.AppPath},
 	})
 	if err != nil {
-		Log.Error("Cannot create shortcut:", err)
+		Log.Error().Err(err).Msg("Cannot create shortcut")
 	}
+	defer func() {
+		if err := os.Remove(shortcutPath); err != nil {
+			Log.Error().Err(err).Msg("Cannot remove shortcut")
+		}
+	}()
 
-	Launch(os.Args[1:])
-
-	oldAppData := path.Join(os.Getenv("APPDATA"), "Skype")
-	_ = os.RemoveAll(oldAppData)
-	_ = os.Remove(shortcutPath)
+	app.Launch(os.Args[1:])
 }
