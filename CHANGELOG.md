@@ -1,5 +1,10 @@
 # Changelog
 
+## 8.41.0.54-50 (2019/03/14)
+
+* Upgrade to Skype 8.41.0.54
+* Portapps 1.20.2
+
 ## 8.40.0.70-49 (2019/02/27)
 
 * Upgrade to Skype 8.40.0.70
