@@ -5,15 +5,14 @@
 package main
 
 import (
-	_ "github.com/kevinburke/go-bindata"
-	"github.com/portapps/portapps/pkg/shortcut"
-	"github.com/portapps/portapps/pkg/utl"
-
 	"io/ioutil"
 	"os"
 	"path"
 
+	_ "github.com/kevinburke/go-bindata"
 	. "github.com/portapps/portapps"
+	"github.com/portapps/portapps/pkg/shortcut"
+	"github.com/portapps/portapps/pkg/utl"
 	"github.com/portapps/skype-portable/assets"
 )
 
