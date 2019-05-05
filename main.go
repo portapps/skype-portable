@@ -11,6 +11,7 @@ import (
 
 	_ "github.com/kevinburke/go-bindata"
 	. "github.com/portapps/portapps"
+	"github.com/portapps/portapps/pkg/proc"
 	"github.com/portapps/portapps/pkg/shortcut"
 	"github.com/portapps/portapps/pkg/utl"
 	"github.com/portapps/skype-portable/assets"
@@ -70,6 +71,17 @@ func main() {
 	defer func() {
 		if err := os.Remove(shortcutPath); err != nil {
 			Log.Error().Err(err).Msg("Cannot remove shortcut")
+		}
+	}()
+
+	// Stop data collector on RtcPalVideoEtwSession
+	defer func() {
+		if err := proc.QuickCmd("logman", []string{
+			"stop",
+			"RtcPalVideoEtwSession",
+			"-ets",
+		}); err != nil {
+			Log.Error().Err(err).Msg("cannot stop data collector on RtcPalVideoEtwSession")
 		}
 	}()
 
