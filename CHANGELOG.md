@@ -1,5 +1,9 @@
 # Changelog
 
+## 8.44.0.40-58 (2019/05/05)
+
+* RtcPalVideoEtwSession locked (Issue #2)
+
 ## 8.44.0.40-57 (2019/04/30)
 
 * Skype 8.44.0.40
