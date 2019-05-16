@@ -1,5 +1,10 @@
 # Changelog
 
+## 8.45.0.41-60 (2019/05/15)
+
+* Skype 8.45.0.41
+* Portapps 1.24.0
+
 ## 8.44.0.40-58 (2019/05/05)
 
 * RtcPalVideoEtwSession locked (Issue #2)
