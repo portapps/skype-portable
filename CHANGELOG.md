@@ -1,5 +1,9 @@
 # Changelog
 
+## 8.45.0.41-62 (2019/05/18)
+
+* Disable launch on startup
+
 ## 8.45.0.41-61 (2019/05/16)
 
 * Portapps 1.24.1
