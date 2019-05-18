@@ -33,6 +33,10 @@
     <replace file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file2}" failOnNoReplacements="true">
       <replacefilter token="${electron.appasar.search2}" value="${electron.appasar.replace2}"/>
     </replace>
+    <assertfile file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file3}"/>
+    <replace file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file3}" failOnNoReplacements="true">
+      <replacefilter token="${electron.appasar.search3}" value="${electron.appasar.replace3}"/>
+    </replace>
 
     <echo message="Removing app.asar..."/>
     <delete file="${extract.path}\${innosetup.app}\resources\app.asar"/>
