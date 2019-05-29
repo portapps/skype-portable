@@ -1,5 +1,9 @@
 # Changelog
 
+## 8.46.0.60-63 (2019/05/29)
+
+* Skype 8.46.0.60
+
 ## 8.45.0.41-62 (2019/05/18)
 
 * Disable launch on startup
