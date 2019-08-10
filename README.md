@@ -4,11 +4,9 @@
   <a href="https://portapps.io/app/skype-portable/#download"><img src="https://img.shields.io/github/release/portapps/skype-portable.svg?style=flat-square" alt="GitHub release"></a>
   <a href="https://portapps.io/app/skype-portable/#download"><img src="https://img.shields.io/github/downloads/portapps/skype-portable/total.svg?style=flat-square" alt="Total downloads"></a>
   <a href="https://travis-ci.com/portapps/skype-portable"><img src="https://img.shields.io/travis/com/portapps/skype-portable/master.svg?style=flat-square" alt="Build Status"></a>
-  <a href="https://github.com/portapps/portapps"><img src="https://img.shields.io/badge/portapps-1.24.1-479fdb.svg?style=flat-square" alt="Portapps version"></a>
+  <a href="https://github.com/portapps/portapps"><img src="https://img.shields.io/badge/portapps-1.25.0-479fdb.svg?style=flat-square" alt="Portapps version"></a>
   <a href="https://goreportcard.com/report/github.com/portapps/skype-portable"><img src="https://goreportcard.com/badge/github.com/portapps/skype-portable?style=flat-square" alt="Go Report"></a>
   <a href="https://www.codacy.com/app/portapps/skype-portable"><img src="https://img.shields.io/codacy/grade/07946201a8a74eab9c6021a26f32fb4e.svg?style=flat-square" alt="Code Quality"></a>
-  <br /><a href="https://www.patreon.com/crazymax"><img src="https://img.shields.io/badge/donate-patreon-fb664e.svg?style=flat-square" alt="Support me on Patreon"></a>
-  <a href="https://www.paypal.me/crazyws"><img src="https://img.shields.io/badge/donate-paypal-7057ff.svg?style=flat-square" alt="Donate Paypal"></a>
 </p>
 
 ## Notice of Non-Affiliation and Disclaimer
