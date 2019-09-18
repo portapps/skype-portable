@@ -1,5 +1,11 @@
 # Changelog
 
+## 8.52.0.138-70 (2019/09/18)
+
+* Skype 8.52.0.138
+* Remove old appdata on exit
+* Portapps 1.26.1
+
 ## 8.51.0.92-69 (2019/08/29)
 
 * Skype 8.51.0.92
