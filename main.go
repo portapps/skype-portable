@@ -49,10 +49,12 @@ func main() {
 	}
 
 	// Remove old appdata when closed
-	oldAppData := path.Join(os.Getenv("APPDATA"), "Skype")
 	defer func() {
-		if err := os.RemoveAll(oldAppData); err != nil {
-			Log.Error().Err(err).Msg("Cannot old appdata folder")
+		if err := os.RemoveAll(path.Join(os.Getenv("APPDATA"), "Skype")); err != nil {
+			Log.Error().Err(err).Msg("Cannot remove old appdata folder")
+		}
+		if err := os.RemoveAll(path.Join(os.Getenv("APPDATA"), "Microsoft", "Skype for Desktop")); err != nil {
+			Log.Error().Err(err).Msg("Cannot remove old appdata folder")
 		}
 	}()
 
