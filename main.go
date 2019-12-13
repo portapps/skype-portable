@@ -16,15 +16,25 @@ import (
 	"github.com/portapps/skype-portable/assets"
 )
 
+type config struct {
+	Cleanup bool `yaml:"cleanup" mapstructure:"cleanup"`
+}
+
 var (
 	app *App
+	cfg *config
 )
 
 func init() {
 	var err error
 
+	// Default config
+	cfg = &config{
+		Cleanup: false,
+	}
+
 	// Init app
-	if app, err = New("skype-portable", "Skype"); err != nil {
+	if app, err = NewWithCfg("skype-portable", "Skype", cfg); err != nil {
 		Log.Fatal().Err(err).Msg("Cannot initialize application. See log file for more info.")
 	}
 }
@@ -34,6 +44,16 @@ func main() {
 	app.Process = utl.PathJoin(app.AppPath, "Skype.exe")
 	app.Args = []string{
 		"--datapath=" + app.DataPath,
+	}
+
+	// Cleanup on exit
+	if cfg.Cleanup {
+		defer func() {
+			utl.Cleanup([]string{
+				path.Join(os.Getenv("APPDATA"), "Skype"),
+				path.Join(os.Getenv("APPDATA"), "Microsoft", "Skype for Desktop"),
+			})
+		}()
 	}
 
 	// Copy default shortcut
@@ -46,16 +66,6 @@ func main() {
 	if err != nil {
 		Log.Error().Err(err).Msg("Cannot write default shortcut")
 	}
-
-	// Remove old appdata when closed
-	defer func() {
-		if err := os.RemoveAll(path.Join(os.Getenv("APPDATA"), "Skype")); err != nil {
-			Log.Error().Err(err).Msg("Cannot remove old appdata folder")
-		}
-		if err := os.RemoveAll(path.Join(os.Getenv("APPDATA"), "Microsoft", "Skype for Desktop")); err != nil {
-			Log.Error().Err(err).Msg("Cannot remove old appdata folder")
-		}
-	}()
 
 	// Update default shortcut
 	err = shortcut.Create(shortcut.Shortcut{
