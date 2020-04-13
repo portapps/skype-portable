@@ -9,10 +9,11 @@ import (
 	"os"
 	"path"
 
-	. "github.com/portapps/portapps"
-	"github.com/portapps/portapps/pkg/proc"
-	"github.com/portapps/portapps/pkg/shortcut"
-	"github.com/portapps/portapps/pkg/utl"
+	"github.com/portapps/portapps/v2"
+	"github.com/portapps/portapps/v2/pkg/log"
+	"github.com/portapps/portapps/v2/pkg/proc"
+	"github.com/portapps/portapps/v2/pkg/shortcut"
+	"github.com/portapps/portapps/v2/pkg/utl"
 	"github.com/portapps/skype-portable/assets"
 )
 
@@ -21,7 +22,7 @@ type config struct {
 }
 
 var (
-	app *App
+	app *portapps.App
 	cfg *config
 )
 
@@ -34,8 +35,8 @@ func init() {
 	}
 
 	// Init app
-	if app, err = NewWithCfg("skype-portable", "Skype", cfg); err != nil {
-		Log.Fatal().Err(err).Msg("Cannot initialize application. See log file for more info.")
+	if app, err = portapps.NewWithCfg("skype-portable", "Skype", cfg); err != nil {
+		log.Fatal().Err(err).Msg("Cannot initialize application. See log file for more info.")
 	}
 }
 
@@ -60,11 +61,11 @@ func main() {
 	shortcutPath := path.Join(os.Getenv("APPDATA"), "Microsoft", "Windows", "Start Menu", "Programs", "Skype Portable.lnk")
 	defaultShortcut, err := assets.Asset("Skype.lnk")
 	if err != nil {
-		Log.Error().Err(err).Msg("Cannot load asset Skype.lnk")
+		log.Error().Err(err).Msg("Cannot load asset Skype.lnk")
 	}
 	err = ioutil.WriteFile(shortcutPath, defaultShortcut, 0644)
 	if err != nil {
-		Log.Error().Err(err).Msg("Cannot write default shortcut")
+		log.Error().Err(err).Msg("Cannot write default shortcut")
 	}
 
 	// Update default shortcut
@@ -77,11 +78,11 @@ func main() {
 		WorkingDirectory: shortcut.Property{Value: app.AppPath},
 	})
 	if err != nil {
-		Log.Error().Err(err).Msg("Cannot create shortcut")
+		log.Error().Err(err).Msg("Cannot create shortcut")
 	}
 	defer func() {
 		if err := os.Remove(shortcutPath); err != nil {
-			Log.Error().Err(err).Msg("Cannot remove shortcut")
+			log.Error().Err(err).Msg("Cannot remove shortcut")
 		}
 	}()
 
@@ -92,7 +93,7 @@ func main() {
 			"RtcPalVideoEtwSession",
 			"-ets",
 		}); err != nil {
-			Log.Error().Err(err).Msg("cannot stop data collector on RtcPalVideoEtwSession")
+			log.Error().Err(err).Msg("cannot stop data collector on RtcPalVideoEtwSession")
 		}
 	}()
 
