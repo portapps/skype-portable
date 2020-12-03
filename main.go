@@ -9,11 +9,11 @@ import (
 	"os"
 	"path"
 
-	"github.com/portapps/portapps/v2"
-	"github.com/portapps/portapps/v2/pkg/log"
-	"github.com/portapps/portapps/v2/pkg/proc"
-	"github.com/portapps/portapps/v2/pkg/shortcut"
-	"github.com/portapps/portapps/v2/pkg/utl"
+	"github.com/portapps/portapps/v3"
+	"github.com/portapps/portapps/v3/pkg/log"
+	"github.com/portapps/portapps/v3/pkg/proc"
+	"github.com/portapps/portapps/v3/pkg/shortcut"
+	"github.com/portapps/portapps/v3/pkg/utl"
 	"github.com/portapps/skype-portable/assets"
 )
 
