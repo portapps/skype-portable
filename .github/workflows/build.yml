@@ -25,6 +25,12 @@ jobs:
         with:
           node-version: 16
       -
+        name: Set up Java JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: adopt
+          java-version: 11
+      -
         name: Java version
         run: |
           java -version
