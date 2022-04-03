@@ -25,6 +25,16 @@ jobs:
         with:
           node-version: 16
       -
+        name: Java version
+        run: |
+          java -version
+        shell: bash
+      -
+        name: ANT version
+        run: |
+          ant -version
+        shell: bash
+      -
         name: Config
         run: |
           echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
