@@ -44,6 +44,7 @@ func main() {
 	app.Process = utl.PathJoin(app.AppPath, "Skype.exe")
 	app.Args = []string{
 		"--datapath=" + app.DataPath,
+		"--user-data-dir=" + app.DataPath,
 	}
 
 	// Cleanup on exit
