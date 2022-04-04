@@ -85,7 +85,7 @@ jobs:
       -
         name: Build
         run: |
-          ant release -Dcore.dir=${{ env.PORTAPPS_DIR }}
+          ant release "-Dcore.dir=${{ env.PORTAPPS_DIR }}"
       -
         name: Upload assets
         uses: actions/upload-artifact@v2
