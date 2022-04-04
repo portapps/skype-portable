@@ -61,7 +61,7 @@ jobs:
           echo "$(go env GOPATH)/bin/windows_386" >> $GITHUB_PATH
 
           echo "PORTAPPS_VERSION=$(cat go.mod | grep github.com/portapps/portapps | awk '{print $NF}')" >> $GITHUB_ENV
-          echo "PORTAPPS_DIR=.portapps" >> $GITHUB_ENV
+          echo "PORTAPPS_DIR=./.portapps" >> $GITHUB_ENV
 
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             echo "GIT_TAGNAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
@@ -85,7 +85,7 @@ jobs:
       -
         name: Build
         run: |
-          ant release -Dcore.dir=$Env:PORTAPPS_DIR
+          ant release -Dcore.dir=${{ env.PORTAPPS_DIR }}
       -
         name: Upload assets
         uses: actions/upload-artifact@v2
