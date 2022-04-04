@@ -1,5 +1,12 @@
 # Changelog
 
+## 8.82.0.403-92 (2022/04/05)
+
+* Skype 8.82.0.403 (#61)
+* Portapps 3.5.0
+* Bump github.com/kevinburke/go-bindata (#54)
+* Fix Java default encoding to UTF8 (#62)
+
 ## 8.80.0.143-91 (2022/01/27)
 
 * Skype 8.80.0.143
