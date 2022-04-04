@@ -31,6 +31,14 @@ jobs:
           distribution: adopt
           java-version: 11
       -
+        name: Set up ANT
+        env:
+          ANT_VERSION: 1.10.8
+        run: |
+          choco install ant --force -y --version $Env:ANT_VERSION
+          $Env:PATH = "C:\ProgramData\chocolatey\lib\ant\tools\apache-ant-$Env:ANT_VERSION\bin;$Env:PATH"
+          echo "ANT_HOME=C:\ProgramData\chocolatey\lib\ant\tools\apache-ant-$Env:ANT_VERSION" | Out-File -FilePath $Env:GITHUB_ENV -Encoding utf-8 -Append
+      -
         name: Java version
         run: |
           java -version
