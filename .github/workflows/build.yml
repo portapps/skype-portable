@@ -61,7 +61,7 @@ jobs:
           echo "$(go env GOPATH)/bin/windows_386" >> $GITHUB_PATH
 
           echo "PORTAPPS_VERSION=$(cat go.mod | grep github.com/portapps/portapps | awk '{print $NF}')" >> $GITHUB_ENV
-          echo "PORTAPPS_DIR=./.portapps" >> $GITHUB_ENV
+          echo "PORTAPPS_DIR=.portapps" >> $GITHUB_ENV
 
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             echo "GIT_TAGNAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
