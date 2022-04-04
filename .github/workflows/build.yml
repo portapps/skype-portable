@@ -7,6 +7,12 @@ on:
       - '*'
   pull_request:
 
+env:
+  GO_VERSION: 1.17
+  NODE_VERSION: 16
+  JAVA_VERSION: 11
+  ANT_VERSION: 1.10.8
+
 jobs:
   build:
     runs-on: windows-latest
@@ -18,22 +24,20 @@ jobs:
         name: Set up Go
         uses: actions/setup-go@v2
         with:
-          go-version: 1.17
+          go-version: ${{ env.GO_VERSION }}
       -
         name: Set up Node
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: ${{ env.NODE_VERSION }}
       -
         name: Set up Java JDK
         uses: actions/setup-java@v2
         with:
           distribution: adopt
-          java-version: 11
+          java-version: ${{ env.JAVA_VERSION }}
       -
         name: Set up ANT
-        env:
-          ANT_VERSION: 1.10.8
         run: |
           choco install ant --force -y --version $Env:ANT_VERSION
           $Env:PATH = "C:\ProgramData\chocolatey\lib\ant\tools\apache-ant-$Env:ANT_VERSION\bin;$Env:PATH"
@@ -42,12 +46,14 @@ jobs:
         name: Java version
         run: |
           java -version
-        shell: bash
       -
         name: ANT version
         run: |
           ant -version
-        shell: bash
+      -
+        name: Node version
+        run: |
+          node --version
       -
         name: Config
         run: |
@@ -79,8 +85,7 @@ jobs:
       -
         name: Build
         run: |
-          ant release -Dcore.dir=${{ env.PORTAPPS_DIR }}
-        shell: bash
+          ant release -Dcore.dir=$Env:PORTAPPS_DIR
       -
         name: Upload assets
         uses: actions/upload-artifact@v2
