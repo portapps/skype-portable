@@ -12,6 +12,7 @@ env:
   NODE_VERSION: 16
   JAVA_VERSION: 11
   ANT_VERSION: 1.10.8
+  JAVA_TOOL_OPTIONS: "-Dfile.encoding=UTF8"
 
 jobs:
   build:
