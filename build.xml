@@ -26,15 +26,15 @@
 
     <echo message="Replacing in app.asar..."/>
     <assertfile file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file}"/>
-    <replace file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file}" failOnNoReplacements="true">
+    <replace file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file}" failOnNoReplacements="true" encoding="UTF-8">
       <replacefilter token="${electron.appasar.search}" value="${electron.appasar.replace}"/>
     </replace>
     <assertfile file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file2}"/>
-    <replace file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file2}" failOnNoReplacements="true">
+    <replace file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file2}" failOnNoReplacements="true" encoding="UTF-8">
       <replacefilter token="${electron.appasar.search2}" value="${electron.appasar.replace2}"/>
     </replace>
     <assertfile file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file3}"/>
-    <replace file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file3}" failOnNoReplacements="true">
+    <replace file="${extract.path}\${innosetup.app}\resources\app\${electron.appasar.file3}" failOnNoReplacements="true" encoding="UTF-8">
       <replacefilter token="${electron.appasar.search3}" value="${electron.appasar.replace3}"/>
     </replace>
 
