@@ -1,5 +1,10 @@
 # Changelog
 
+## 8.90.0.407-94 (2022/11/20)
+
+* Skype 8.90.0.407
+* Bump github.com/kevinburke/go-bindata from 3.23.0+incompatible to 3.24.0+incompatible
+
 ## 8.83.0.409-93 (2022/06/05)
 
 * Skype 8.83.0.409
